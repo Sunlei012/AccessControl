@@ -1,4 +1,4 @@
-import {Card} from "antd";
+import {Button, Card} from "antd";
 import {
   CheckCircleOutlined,
   CheckOutlined,
@@ -13,30 +13,71 @@ import {fakeChartData, fakeChecked} from "@/pages/dashboard/analysis/service";
 
 const Analysis = () => {
 
-  const {loading,data} = useRequest(fakeChartData);
+  const {loading,data,run:get} = useRequest(fakeChartData,{manual:false,pollingInterval: 5000});
 
   const {run:Cehcked} = useRequest((params)=>fakeChecked(params));
-  const [intruders, setInturders] = useState([]);
+  // const [data,setData]= useState();
+  const [intruders, setInturders] = useState();
   // console.log(data);
   useEffect( ()=>{
     // console.log(data?.list[0].age);
-    data?.list.map((i)=>{
-      setInturders([...intruders,{age:i.age,img:i.img,isShow:true}])
-    })
+    //   const interval = setInterval(Get,10000)
+    // console.log(data)
+    //   setInturders([]);
+    // console.log(intruders)
+    //   setInturders()
+    // data?.list.map((i)=>{
+    // console.log(i)
+      // intruders.push(i);
+      // i.isShow=true;
+      // setInturders([...intruders,{age:12,img:"",isShow:true}])
+      // console.log(intruders);
+    // })
+    // setInturders(data.list)
+
+
     // setInturders([...intruders,{age:"data[0].age",img:"data[0].img",isShow:true}])
     //   console.log(intruders);
+
+    // return ()=> clearInterval(interval)
   }
   ,[data?.list]);
-
+  const updateInturders=()=>{
+    // setData(Get())
+  }
   const clickChecked =(intruder)=>{
     Cehcked(intruder);
-    setInturders([...intruders,intruder.isShow=false]);
+    get();
   }
 
+  // const [todos, setTodos] = useState([{ text: "Learn Hooks" }]);
+  // const addItems = () => {
+  //   setInturders([
+  //     ...intruders,
+  //     {
+  //       text: "Learn Hooks1"
+  //     }
+  //   ]);
+  // };
+  // return (
+  //   <div>
+  //     <ul>
+  //       {intruders.map((item, index) => {
+  //         return (
+  //           <li key={index}>
+  //             {item.text}-{index}
+  //           </li>
+  //         );
+  //       })}
+  //     </ul>
+  //     <button onClick={addItems}>Add Item</button>
+  //   </div>
+  // );
   return (
-    intruders.map((intruder)=>{
+    !loading&&
+    data?.list?.map((intruder,index)=>{
       return (
-        intruder.isShow&&(<Card key={intruder}
+        (<Card key={index}
           style={{ width: 300 }}
           cover={
             <img
@@ -58,6 +99,9 @@ const Analysis = () => {
       );
     })
   )
+
+
+
 };
 
 export default Analysis;

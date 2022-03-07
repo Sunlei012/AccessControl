@@ -27,7 +27,7 @@ export default {
   },
   pre: {
     '/api/': {
-      target: 'your pre url',
+      target: 'http://127.0.0.1:5000/',
       changeOrigin: true,
       pathRewrite: {
         '^': '',

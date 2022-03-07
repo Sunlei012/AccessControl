@@ -206,7 +206,18 @@ const fakeChartData = (_, res) => {
         list:
           [
             {
+              id:1,
               age:1,
+              img:"https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fupload-images.jianshu.io%2Fupload_images%2F13055508-7b2246905fb4f095.png&refer=http%3A%2F%2Fupload-images.jianshu.io&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1648734001&t=f94399ac3d5d9c9eb711259858c80a38"
+            },
+            {
+              id:2,
+              age:2,
+              img:"https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fupload-images.jianshu.io%2Fupload_images%2F13055508-7b2246905fb4f095.png&refer=http%3A%2F%2Fupload-images.jianshu.io&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1648734001&t=f94399ac3d5d9c9eb711259858c80a38"
+            },
+            {
+              id:2,
+              age:2,
               img:"https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fupload-images.jianshu.io%2Fupload_images%2F13055508-7b2246905fb4f095.png&refer=http%3A%2F%2Fupload-images.jianshu.io&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1648734001&t=f94399ac3d5d9c9eb711259858c80a38"
             }
           ]
@@ -222,7 +233,7 @@ const fakeChecked = (_, res)=>{
 }
 
 export default {
-  'GET  /api/fake_analysis_chart_data': fakeChartData,
+  'GET  /api/intruder': fakeChartData,
   'POST /api/checked': fakeChecked,
 };
 
